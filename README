@@ -4,7 +4,7 @@ A simple example app of using ng-forward with angular ui-router
 
 # Requirements
 
-npm
+npm and gulp
 
 # Installation
 
