@@ -1,0 +1,22 @@
+# ng-forward-ui-router
+
+A simple example app of using ng-forward with angular ui-router
+
+# Requirements
+
+npm
+
+# Installation
+
+Clone this repository, then install npm dependencies
+
+  npm install
+
+Run gulp
+
+  gulp
+
+Visit the page in your browser
+
+  http://localhost:8080
+
