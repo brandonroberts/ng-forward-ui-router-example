@@ -1,4 +1,7 @@
 import {Component} from 'ng-forward';
+import {StateConfig} from '../../decorators/state-config';
+import {Home} from '../home/home';
+import {About} from '../about/about';
 
 @Component({
   selector: 'app',
@@ -10,6 +13,18 @@ import {Component} from 'ng-forward';
     `,
   providers: ['app.config']
 })
+@StateConfig([
+  {
+    name: 'home',
+    path: '/',
+    component: Home
+  },
+  {
+    name: 'about',
+    path: '/about',
+    component: About
+  }
+])
 export class App {
 
 }

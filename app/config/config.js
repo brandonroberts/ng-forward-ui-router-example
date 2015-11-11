@@ -1,16 +1,16 @@
-export default angular.module('app.config', [])
-.config(['$stateProvider', '$locationProvider', ($stateProvider, $locationProvider) => {
-  $locationProvider.html5Mode({ enabled: true, requireBase: false });
+import {stateStore} from '../decorators/state-config';
 
-  $stateProvider
 
-  .state('home', {
-    url: '/',
-    template: '<home></home>'
-  }).
+export const configStates = (target) => {
+  return angular.module('app.config', [])
+  .config(['$stateProvider', '$locationProvider', ($stateProvider, $locationProvider) => {
+    $locationProvider.html5Mode({ enabled: true, requireBase: false });
 
-  state('about', {
-    url: '/about',
-    template: '<about></about>'
-  });
-}]);
+    stateStore.forEach((config, name) => {
+      $stateProvider
+
+      .state(name, config);
+    }, target);
+  }]);
+
+}
