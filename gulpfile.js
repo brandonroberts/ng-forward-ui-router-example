@@ -8,6 +8,7 @@ var connect = require('gulp-connect');
 var buffer = require('vinyl-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var stringify = require('stringify');
+var history = require('connect-history-api-fallback');
 
 function handleError(error) {
   console.log("Error: " + error.message);
@@ -43,6 +44,11 @@ gulp.task('style', function() {
 gulp.task('connect', function() {
   connect.server({
     root: 'dist',
-    port: 8080
+    port: 8080,
+    middleware: function(connect, opt) {
+      return [
+        history()
+      ]
+    }
   });
 });
