@@ -13,7 +13,16 @@ import {Profile} from '../profile/profile';
 })
 @StateConfig([
   { url: '/profile', component: Profile, name: 'users.profile' },
-  { url: '/account', component: Account, name: 'users.account' }
+  {
+    url: '/account', 
+    component: Account,
+    name: 'users.account',
+    resolve: {
+      auth: ['$q', ($q) => $q((resolve) => {
+        resolve('resolved auth');
+      })]
+    }
+   }
 ])
 export class Users {
 
